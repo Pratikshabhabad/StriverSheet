@@ -1,0 +1,110 @@
+//brute force for not repeated elements inn array
+
+import java.util.Arrays;
+
+public class Solution {
+    public static int[] getSecondOrderElements(int n, int []a) {
+        // Write your code here.
+
+        Arrays.sort(a);
+
+        int secondsmall=a[1];
+        int secondLarge=a[a.length-2];
+    int ans[]={secondLarge,secondsmall};
+        return ans;
+    }
+}
+
+//another 2
+
+import java.util.*;
+
+public class Solution {
+    public static int[] getSecondOrderElements(int n, int []a) {
+        // Write your code here.
+        Arrays.sort(a);
+        int small=a[0];
+        int large=a[n-1];
+
+        for(int i=n-1;i>=0;i--)
+        {
+            if(a[i]!=large)
+            {
+                large=a[i];
+                break;
+            }
+        }
+
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]!=small)
+            {
+                small=a[i];
+                break;
+            }
+        }
+
+       int ans[]={large,small};
+
+       return ans;
+
+
+        
+    }
+}
+
+//technique 3- better approach 
+
+public class Solution {
+    public static int[] getSecondOrderElements(int n, int []a) {
+        // Write your code here.
+
+        int ssmall=secondSmall(a, n);
+        int slarge=secondLarge(a, n);
+
+        int ans[]={slarge,ssmall};
+        return ans;
+    }
+
+    public static int secondLarge(int a[],int n)
+    {
+        int large=a[0];
+
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]>large)
+            {
+                large=a[i];
+            }
+        }
+
+        int secondLarge=-1;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]>secondLarge && a[i]!=large)
+            {
+                secondLarge=a[i];
+            }
+        }
+return secondLarge;
+
+    }
+
+         public static int secondSmall(int a[], int n) {
+        int small = Integer.MAX_VALUE; // Initialize small with the maximum possible integer value
+
+        for (int i = 0; i < n; i++) {
+            if (a[i] < small) {
+                small = a[i];
+            }
+        }
+
+        int secondSmall = Integer.MAX_VALUE; // Initialize secondSmall with the maximum possible integer value
+        for (int i = 0; i < n; i++) {
+            if (a[i] > small && a[i] < secondSmall) {
+                secondSmall = a[i];
+            }
+        }
+        return secondSmall;
+    }
+}
