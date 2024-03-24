@@ -1,0 +1,39 @@
+//technique 1- brute force
+
+public class Solution {
+    public static int isSorted(int n, int []a) {
+        // Write your code here.
+        int sort=1; 
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(a[j]<a[i])
+                {
+                    sort=0;
+                }
+            }
+        }
+
+        return sort;
+    }
+}
+
+//second approach -optimal 
+
+public class Solution {
+    public static int isSorted(int n, int []a) {
+        // Write your code here.
+
+        int sort=1;
+    for(int i=0;i<n-1;i++)
+    {
+        if(a[i]>a[i+1])
+        {
+            sort=0;
+        }
+    }
+ 
+ return sort;
+    }
+}
