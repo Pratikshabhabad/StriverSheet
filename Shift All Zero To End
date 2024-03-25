@@ -1,0 +1,26 @@
+//technique 1
+
+public class Solution {
+        public static int[] moveZeros(int n, int []a) {
+        // Write your code here.
+
+        int cnt=0;
+
+    int ans[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]!=0)
+            {
+                ans[cnt]=a[i];
+                cnt++;
+            }
+        }
+
+        while(cnt<n)
+        {
+            ans[cnt++]=0;
+        }
+
+        return ans;
+    }
+}
