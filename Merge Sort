@@ -1,0 +1,50 @@
+//Merge Sort
+
+public class Solution {
+
+    public static void mergeSort(int[] arr, int l, int r){
+        // Write your code here
+    if(l>=r)
+    {
+        return;
+    }
+        int mid=(l+r)/2;
+
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid+1, r);
+        merge(arr,l,mid,r);
+
+    }
+
+   public static void merge(int arr[], int l, int mid, int r) {
+    int left = l;
+    int right = mid + 1;
+    int temp[] = new int[arr.length];
+    int i = l; // Start from the beginning of the original array
+
+    while (left <= mid && right <= r) {
+        if (arr[left] < arr[right]) {
+            temp[i++] = arr[left++];
+        } else {
+            temp[i++] = arr[right++];
+        }
+    }
+
+    // Copy remaining elements from left subarray
+    while (left <= mid) {
+        temp[i++] = arr[left++];
+    }
+
+    // Copy remaining elements from right subarray
+    while (right <= r) {
+        temp[i++] = arr[right++];
+    }
+
+    // Copy merged elements back to the original array
+    for (int k = l; k <= r; k++) {
+        arr[k] = temp[k];
+    }
+}
+
+    
+}
