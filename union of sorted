@@ -1,0 +1,44 @@
+//2 approach brute force
+
+import java.util.*;
+
+public class Solution {
+    public static List<Integer> sortedArray(int[] a, int[] b) {
+        // // Write your code here
+        List<Integer> ans = new ArrayList<>();
+
+        // // Add elements from array 'a' to the list
+        // for (int i : a) {
+        //     ans.add(i);
+        // }
+
+        // // Add elements from array 'b' to the list if they are not already present in 'ans'
+        // for (int i : b) {
+        //     if (!ans.contains(i)) {
+        //         ans.add(i);
+        //     }
+        // }
+
+        // // Sort the list
+        // Collections.sort(ans);
+
+        Set <Integer>set=new HashSet<Integer>() ;
+
+        for(int i:a)
+        {
+            set.add(i);
+        }    
+
+        for(int i:b)
+        {
+            set.add(i);
+        }
+        
+        for(int i:set)
+        {
+            ans.add(i);
+        }
+
+        return ans;
+    }
+}
