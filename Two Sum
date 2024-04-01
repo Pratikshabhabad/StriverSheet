@@ -1,0 +1,46 @@
+//brute force
+
+public class Solution {
+    public static String read(int n, int []book, int target){
+        // Write your code here.
+
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(book[i]+book[j]==target)
+                {
+                    return "YES";
+                }
+            }
+        }
+return "NO";
+    }
+}
+
+//bettter solution
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Solution {
+    public static String read(int n, int []book, int target){
+        // Write your code here.
+
+        Set<Integer>set=new HashSet<>();
+
+        for(int i=0;i<n;i++)
+        {
+            int a=book[i];
+            int more=target-a;
+            if(set.contains(more))
+            {
+                return "YES";
+            }
+
+            set.add(a);
+        }
+
+        return "NO";
+    }
+}
