@@ -44,3 +44,41 @@ public class Solution {
         return "NO";
     }
 }
+
+
+//best Appproach
+
+import java.util.Arrays;
+
+import jdk.nashorn.internal.ir.ReturnNode;
+
+public class Solution {
+    public static String read(int n, int []book, int target){
+        // Write your code here.
+
+        int st=0;
+        int end=n-1;
+
+        Arrays.sort(book);
+
+        while(st<end)
+        {
+            int sum=book[st]+book[end];
+
+            if(sum==target)
+            {
+                return "YES";
+            }
+            else if(sum>target)
+            {
+                end--;
+            }
+            else
+            {
+                st++;
+            }
+        }
+
+        return "NO";
+    }
+}
