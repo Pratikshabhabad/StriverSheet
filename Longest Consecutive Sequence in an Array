@@ -1,0 +1,36 @@
+//technique 1
+
+import java.util.Arrays;
+
+public class Solution {
+    public static int longestSuccessiveElements(int []a) {
+        // Write your code here.
+        Arrays.sort(a);
+        if(a.length==0)
+        {
+            return 0;
+        }
+        int cnt=0;
+        int longcnt=1;
+    int prev=Integer.MIN_VALUE;
+
+        for(int i=0;i<a.length;i++)
+        {
+            if(a[i]-1==prev)
+            {
+                cnt++;
+                prev=a[i];
+            }
+            else if(a[i]!=prev)
+            {
+                cnt=1;
+                prev=a[i];
+            }
+
+    longcnt=Math.max(longcnt,cnt);
+        }
+
+
+        return cnt;
+    }
+}
