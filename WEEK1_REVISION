@@ -91,4 +91,97 @@ return large;
     }
 }
 
-//
+//secondLarge And SecondSmall
+
+public class Solution {
+    public static int[] getSecondOrderElements(int n, int []a) {
+        // Write your code here.
+        return new int[]{large(n, a),small(n, a)};
+    
+    }
+    public static int large(int n,int a[])
+    {
+            int large=Integer.MIN_VALUE;
+
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]>large)
+            {
+                large=a[i];
+            }
+        }
+
+        int secondlarge=-1;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]>secondlarge && a[i]!=large)
+            {
+                secondlarge=a[i];
+            }
+        }
+
+       return secondlarge;
+    }
+
+
+        public static int small(int n,int a[])
+    {
+            int small=Integer.MAX_VALUE;
+
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]<small)
+            {
+                small=a[i];
+            }
+        }
+
+        int secondsmall=Integer.MAX_VALUE;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]>small && a[i]<secondsmall)
+            {
+                secondsmall=a[i];
+            }
+        }
+
+       return secondsmall;
+    }
+}
+
+
+///Array is sorted or not
+
+public class Solution {
+    public static int isSorted(int n, int []a) {
+        // Write your code here.
+        int flag=1;
+        for(int i=0;i<n-1;i++)
+        {
+            if(a[i]>a[i+1])
+            {
+                flag=0;
+            }
+        }
+        return flag;
+    }
+}
+
+//remove duplicate and return size
+
+import java.util.HashSet;
+
+public class Solution {
+    public static int removeDuplicates(int[] arr,int n) {
+        // Write your code here.
+        HashSet<Integer>set=new HashSet<>();
+
+        for(int i=0;i<n;i++)
+        {
+            set.add(arr[i]);
+        }
+
+            return set.size();
+    }
+
+}
