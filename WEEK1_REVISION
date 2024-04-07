@@ -287,3 +287,30 @@ public class Solution {
     }
 }
 
+//merge 2 sorted array
+
+import java.util.*;
+public class Solution {
+    public static List< Integer > sortedArray(int []a, int []b) {
+        // Write your code here
+        List<Integer>list=new ArrayList<>();
+        Set<Integer>set=new HashSet<>();
+
+        for(int i:a)
+        {
+            set.add(i);
+        }
+
+        for(int i:b)
+        {
+            set.add(i);
+        }
+
+        for(int i:set)
+        {
+            list.add(i);
+        }
+
+        return list;
+    }
+}
