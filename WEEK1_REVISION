@@ -208,3 +208,82 @@ public class Solution {
         return arr;
     }
 }
+
+//left rotate by D places
+
+ import java.util.ArrayList;
+
+public class Solution {
+	public static ArrayList<Integer> rotateArray(ArrayList<Integer> arr, int k) {
+        // Write your code here.
+
+         ArrayList<Integer>list=new ArrayList<>();
+
+              for(int i=k;i<arr.size();i++)
+              {
+                     list.add(arr.get(i));
+              }
+
+              for(int i=0;i<k;i++)
+              {
+                     list.add(arr.get(i));
+              }
+
+return list;
+    }
+}
+
+
+//move zero to end
+
+
+public class Solution {
+        public static int[] moveZeros(int n, int []a) {
+        // Write your code here.
+int cnt=0;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]==0)
+            {
+                cnt++;
+            }
+        }
+int ans[]=new int[n];
+int k=0;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]!=0)
+            {
+                ans[k]=a[i];
+                k++;
+            }
+        }
+
+        for(int i=n-cnt;i<n;i++)
+        {
+            ans[i]=0;
+        }
+
+        return ans;
+    }
+}
+
+//linear search
+
+import java.util.*;
+public class Solution {
+    public static int linearSearch(int n, int num, int []arr){
+        // Write your code here.
+
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]==num)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+}
+
