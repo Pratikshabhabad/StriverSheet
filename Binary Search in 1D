@@ -1,0 +1,62 @@
+//approach 1
+
+
+
+public class Solution {
+    public static int search(int []nums, int target) {
+        // Write your code here.
+
+        int st=0;
+        int end=nums.length-1;
+
+        while(st<end)
+        {
+            int mid=st+(end-st)/2;
+
+            if(nums[mid]==target)
+            {
+                return mid;
+            }
+            else if(nums[mid]>target)
+            {
+                end=mid;
+            }
+            else if(nums[mid]<target)
+            {
+                st=mid+1;
+            }
+
+        }
+
+        return -1;
+    }
+}
+
+
+//recursive approach
+
+
+
+public class Solution {
+    public static int search(int []nums, int target) {
+        // Write your code here.
+     return BinarySearch(nums,0,nums.length-1,target);
+       
+        
+    }
+
+    public static int  BinarySearch(int nums[],int st,int end,int target)
+    {
+        if(st>end)
+        return -1;
+
+        int mid=(st+end)/2;
+
+        if(nums[mid]==target)  return mid;
+        else if(nums[mid]>target)
+            return BinarySearch(nums, st, mid-1, target); 
+         return BinarySearch(nums, mid+1, end, target);
+    }
+
+
+}
