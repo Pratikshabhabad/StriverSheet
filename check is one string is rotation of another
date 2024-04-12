@@ -1,0 +1,17 @@
+//aproach 1
+
+public class Solution {
+    public static int isCyclicRotation(String p, String q)  {
+     if (p.length() != q.length()) {
+            return 0; 
+        }
+
+        String concatenated = p + p; 
+
+        if (concatenated.contains(q)) {
+            return 1; 
+        } else {
+            return 0;
+        }
+    }
+    }
