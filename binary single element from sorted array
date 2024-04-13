@@ -42,19 +42,17 @@ public class Solution
         while (st <= end) {
             int mid = st + (end - st) / 2; // calculate middle index
 
-            // Check if mid is the single non-duplicate
             if (!arr.get(mid).equals(arr.get(mid + 1)) && !arr.get(mid).equals(arr.get(mid - 1))) {
                 return arr.get(mid);
             }
 
-            // Adjust search range based on the position of mid and its adjacent elements
             if ((mid % 2 == 1 && arr.get(mid).equals(arr.get(mid - 1))) ||
                     (mid % 2 == 0 && arr.get(mid).equals(arr.get(mid + 1)))) {
-                st = mid + 1; // Move to the right half
+                st = mid + 1; 
             } else {
-                end = mid - 1; // Move to the left half
+                end = mid - 1; 
             }
         }
-        return -1; // Return -1 if no single non-duplicate found (this should not happen for valid input)
+        return -1; 
     }
 }
