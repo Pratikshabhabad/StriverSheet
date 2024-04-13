@@ -1,0 +1,68 @@
+//binary search
+
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+    public static int[] getFloorAndCeil(int[] a, int n, int x) {
+      // Wriute your code here.
+      int ans[]={getFloor(a, n, x),getCeil(a, n, x)};
+
+      return ans;
+    }
+
+    public static int getFloor(int []a,int n,int x)
+    {
+
+        int st=0;
+        int end=a.length-1;
+
+        int ans=-1;
+
+        while(st<=end)
+        {
+
+            int mid=(st+end)/2;
+
+            if(a[mid]<=x)
+            {
+              ans=a[mid];
+              st=mid+1;
+            }
+            else
+            {
+              end=mid-1;
+            }
+        }
+
+        return ans;
+    }
+
+       public static int getCeil(int []a,int n,int x)
+    {
+
+        int st=0;
+        int end=a.length-1;
+
+        int ans=-1;
+
+        while(st<=end)
+        {
+
+            int mid=(st+end)/2;
+
+            if(a[mid]>=x)
+            {
+              ans=a[mid];
+              end=mid-1;
+            }
+            else
+            {
+             st=mid+1;
+            }
+        }
+
+        return ans;
+    }
+    
+}
