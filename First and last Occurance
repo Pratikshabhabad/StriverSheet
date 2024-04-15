@@ -1,0 +1,53 @@
+//approach by Binary Search
+
+import java.util.ArrayList;
+
+public class Solution {
+
+    public static int[] firstAndLastPosition(ArrayList<Integer> arr, int n, int k) {
+        int[] result = {firstOccurrence(arr, n, k),lastOccurrence(arr, n, k)}; // Initialize result array with -1 values
+   
+        
+        return result;
+    }
+    
+    public static int firstOccurrence(ArrayList<Integer> arr, int n, int k) {
+        int st = 0;
+        int end = n - 1;
+        int first = -1;
+
+        while (st <= end) {
+            int mid = st + (end - st) / 2; // Better way to calculate mid to prevent overflow
+            if (arr.get(mid) == k) {
+                first = mid;
+                end = mid - 1; // Continue searching towards left to find first occurrence
+            } else if (k < arr.get(mid)) {
+                end = mid - 1;
+            } else {
+                st = mid + 1;
+            }
+        }
+        
+        return first;
+    }
+
+    public static int lastOccurrence(ArrayList<Integer> arr, int n, int k) {
+        int st = 0;
+        int end = n - 1;
+        int last = -1;
+
+        while (st <= end) {
+            int mid = st + (end - st) / 2; // Better way to calculate mid to prevent overflow
+            if (arr.get(mid) == k) {
+                last = mid;
+                st = mid + 1; // Continue searching towards right to find last occurrence
+            } else if (k < arr.get(mid)) {
+                end = mid - 1;
+            } else {
+                st = mid + 1;
+            }
+        }
+        
+        return last;
+    }
+}
