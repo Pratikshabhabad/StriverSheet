@@ -33,3 +33,62 @@ public class Solution {
     }
 }
 
+//appraoch 2
+
+public class Solution {
+    public static int count(int arr[], int n, int x) {
+        //Your code goes here
+        int first = firstOccurrence(arr, n, x);
+        int last = lastOccurrence(arr, n, x);
+
+        // If either first or last occurrence is -1, it means 'x' is not found
+        if (first == -1 || last == -1) {
+            return 0;
+        }
+
+        // Total occurrences = Last occurrence - First occurrence + 1
+        return last - first + 1;
+    }
+
+    public static int firstOccurrence(int arr[], int n, int x) {
+        int st = 0;
+        int end = n - 1;
+        int first = -1;
+
+        while (st <= end) {
+            int mid = st + (end - st) / 2;
+
+            if (arr[mid] == x) {
+                first = mid;
+                end = mid - 1; // Continue searching towards left to find first occurrence
+            } else if (arr[mid] > x) {
+                end = mid - 1;
+            } else {
+                st = mid + 1;
+            }
+        }
+
+        return first;
+    }
+
+    public static int lastOccurrence(int arr[], int n, int x) {
+        int st = 0;
+        int end = n - 1;
+        int last = -1;
+
+        while (st <= end) {
+            int mid = st + (end - st) / 2;
+
+            if (arr[mid] == x) {
+                last = mid;
+                st = mid + 1; // Continue searching towards right to find last occurrence
+            } else if (arr[mid] > x) {
+                end = mid - 1;
+            } else {
+                st = mid + 1;
+            }
+        }
+
+        return last;
+    }
+}
