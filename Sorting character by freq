@@ -1,0 +1,42 @@
+import java.util.HashMap;
+
+public class Solution {
+    public static String sortByFrequency(int n, String s) {
+        // Write Your Code here
+
+  HashMap<Character, Integer> map = new HashMap<>();
+
+        // Count the frequency of each character
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        // Sort the characters based on frequency
+        StringBuilder sortedString = new StringBuilder();
+        while (!map.isEmpty()) {
+            char maxChar = '\0'; // Initialize maxChar with null character
+            int maxCount = -1; // Initialize maxCount with -1
+
+            // Find the character with the maximum frequency
+            for (char c : map.keySet()) {
+                if (map.get(c) > maxCount) {
+                    maxChar = c;
+                    maxCount = map.get(c);
+                }
+            }
+
+            // Append maxChar to the sorted string maxCount times
+            for (int i = 0; i < maxCount; i++) {
+                sortedString.append(maxChar);
+            }
+
+            // Remove maxChar from the map
+            map.remove(maxChar);
+        }
+
+        return sortedString.toString();
+
+        
+    }
+}
