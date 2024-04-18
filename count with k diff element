@@ -1,0 +1,29 @@
+public class Solution {
+    public static int countSubStrings(String str, int k) {
+        // Write your code here.
+        int cnt = 0;
+
+        for (int i = 0; i <= str.length() - k; i++) {
+            int[] freq = new int[26];
+
+            int distinctCount = 0;
+
+            for (int j = i; j < str.length(); j++) {
+                if (freq[str.charAt(j) - 'a'] == 0) {
+                    distinctCount++; 
+                }
+
+                freq[str.charAt(j) - 'a']++;
+
+                if (distinctCount == k) {
+                    cnt++;
+                } else if (distinctCount > k) {
+                    break;
+                }
+            }
+        }
+
+        return cnt;
+    }
+}
+
