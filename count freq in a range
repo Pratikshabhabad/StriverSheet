@@ -1,0 +1,17 @@
+public class Solution {
+    public static int[] countFrequency(int n, int x, int []nums){
+        // Write your code here.
+
+                int[] freq = new int[n];
+
+        // Count the frequency of numbers in nums array
+        for (int num : nums) {
+            if (num <= n) {
+                freq[num - 1]++;
+            }
+        }
+
+        // Return the frequency array
+        return freq;
+    }
+}
