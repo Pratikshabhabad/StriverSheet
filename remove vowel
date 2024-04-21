@@ -1,0 +1,8 @@
+class Solution {
+    String removeVowels(String s) {
+        // code here
+        String st=s.replaceAll("[aeiouAEIOU]","");
+        
+        return st;
+    }
+}
