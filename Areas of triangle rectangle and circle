@@ -1,0 +1,13 @@
+class Solution {
+    static int[] getAreas(int L , int W , int B , int H , int R) {
+        // code here
+        
+        int AreaRectangle=L*W;
+        int AreaTriangle=(int)(0.5*B*H);
+        int AreaCircle=(int)(3.14*R*R);
+        
+        int ans[]={AreaRectangle,AreaTriangle,AreaCircle};
+        
+        return ans;
+    }
+};
