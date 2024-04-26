@@ -1,0 +1,17 @@
+class Solution {
+    public int binary_to_decimal(String str) {
+        // Code here
+        
+        int decValue=0;
+        
+        for(int i=str.length()-1;i>=0;i--)
+        {
+            char ch=str.charAt(i);
+            
+            int bit=ch-'0';
+            decValue+=bit*Math.pow(2,str.length()-1-i);
+        }
+        
+        return decValue;
+    }
+}
