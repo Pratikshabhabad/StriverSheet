@@ -1,0 +1,16 @@
+class Solution{
+    static int countFactors(int N) {
+        //code here
+        int cnt=0;
+        int no=N;
+        for(int i=1;i<=N;i++)
+        {
+            if(no%i==0)
+            {
+                cnt++;
+            }
+        }
+        
+        return cnt;
+    }
+}
