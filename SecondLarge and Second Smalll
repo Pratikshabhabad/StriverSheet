@@ -108,3 +108,33 @@ return secondLarge;
         return secondSmall;
     }
 }
+
+////*************************//
+class Solution {
+    int print2largest(int arr[], int n) {
+        // code here
+        
+        int large=Integer.MIN_VALUE;
+        
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]>large)
+            {
+                large=arr[i];
+                
+            }
+        }
+        
+        int secondlarge=-1;
+        
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]>secondlarge && arr[i]!=large)
+            {
+                secondlarge=arr[i];
+            }
+        }
+        
+        return secondlarge;
+    }
+}
